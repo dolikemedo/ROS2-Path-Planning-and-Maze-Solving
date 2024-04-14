@@ -34,7 +34,8 @@ from numpy import interp
 import pygame
 import os
 pygame.mixer.init()
-pygame.mixer.music.load(os.path.abspath('src/maze_bot/resource/aud_chomp.mp3'))
+#pygame.mixer.music.load(os.path.abspath('src/maze_bot/resource/aud_chomp.mp3'))
+pygame.mixer.music.load(os.path.abspath('../resource/aud_chomp.mp3'))
 
 from . import config
 
