@@ -33,9 +33,15 @@ from math import pow , atan2,sqrt , degrees,asin
 from numpy import interp
 import pygame
 import os
+
+absolute_path = os.path.dirname(os.path.abspath(__file__))
+relative_path_mp3 = "../resources"
+full_path_mp3 = os.path.join(absolute_path, relative_path_mp3)
+
 pygame.mixer.init()
 #pygame.mixer.music.load(os.path.abspath('src/maze_bot/resource/aud_chomp.mp3'))
-pygame.mixer.music.load(os.path.abspath('../resource/aud_chomp.mp3'))
+print(f"{os.path.abspath('../resource/aud_chomp.mp3')}")
+pygame.mixer.music.load(full_path_mp3)
 
 from . import config
 
