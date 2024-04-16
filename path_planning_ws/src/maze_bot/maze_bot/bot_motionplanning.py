@@ -34,13 +34,14 @@ from numpy import interp
 import pygame
 import os
 
-absolute_path = os.path.dirname(os.path.abspath(__file__))
-relative_path_chomp = "../resources/aud_chomp.mp3"
-relative_path_goalReached = "../resources/Goal_reached.wav"
-full_path_chomp = os.path.join(absolute_path, relative_path_chomp)
-full_path_goalReached = full_path_chomp = os.path.join(absolute_path, relative_path_goalReached)
-pygame.mixer.init()
-pygame.mixer.music.load(full_path_chomp)
+# no need for sound in headless. might need other signal for feedback
+# absolute_path = os.path.dirname(os.path.abspath(__file__))
+# relative_path_chomp = "../resources/aud_chomp.mp3"
+# relative_path_goalReached = "../resources/Goal_reached.wav"
+# full_path_chomp = os.path.join(absolute_path, relative_path_chomp)
+# full_path_goalReached = full_path_chomp = os.path.join(absolute_path, relative_path_goalReached)
+# pygame.mixer.init()
+# pygame.mixer.music.load(full_path_chomp)
 
 from . import config
 
@@ -377,8 +378,9 @@ class bot_motionplanner():
                     self.goal_not_reached_flag = False
                     
                     # Play the party song, Mention that reached goal
-                    pygame.mixer.music.load(full_path_goalReached)
-                    pygame.mixer.music.play()
+                    # no need for sound in headless. might need other signal for feedback
+                    # pygame.mixer.music.load(full_path_goalReached)
+                    # pygame.mixer.music.play()
             # Still doing mini-goals?
             else:
                 # Iterate over the next mini-goal
@@ -387,8 +389,9 @@ class bot_motionplanner():
                 self.goal_pose_y = path[self.path_iter][1]
                 #print("Current Goal (x,y) = ( {} , {} )".format(path[self.path_iter][0],path[self.path_iter][1]))
                 
-                if pygame.mixer.music.get_busy() == False:
-                    pygame.mixer.music.play()
+                # no need for sound in headless. might need other signal for feedback
+                # if pygame.mixer.music.get_busy() == False:
+                #     pygame.mixer.music.play()
 
     def nav_path(self,bot_loc,path,velocity,velocity_publisher):
 
